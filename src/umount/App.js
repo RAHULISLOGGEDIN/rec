@@ -17,12 +17,12 @@ function AnotherComponent() {
   useEffect(() => {
     console.log("I am danger, dont use me");
   });
-
+  /* your component has 100 states */
   useEffect(() => {
     console.log(
       "I am a useEffect, which will get triggered only when name state updates, FYI name even updates on mounted"
     );
-  }, [name]);
+  }, [count, name]);
 
   return (
     <div>
