@@ -439,3 +439,26 @@ Question ->
 
 1) When child1 mounts child2 should unmount (Prove with valid console.log)
 2) On each update on the parent -> log I am updated
+
+
+TODO list ->
+Concepts ->
+	1) State uplifting
+	2) Props
+	3) Hacky way of sending data upwards to your parent
+	4) Forms
+	5) React-icons
+	6) Conditional rendering of classes
+
+
+App.js (parent)
+	<h1>
+	<TodoForm />
+		(Form Tag or you can directly use an input and button)
+
+	<TodoDisplay />
+		<TodoItem />
+			(todo content, tick icon, delete icon)
+
+** special -> save and retrieve todos -> on refresh -> the same items should appear
+	Hint -> use local storage along with useEffect
