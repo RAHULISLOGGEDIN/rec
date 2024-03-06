@@ -33,10 +33,12 @@ function Child2() {
   return <>Child2</>;
 }
 
-<div
+{
+  /* <div
   style={{
     height: displayedBoxProperties.height,
     width: displayedBoxProperties.width,
     backgroundColor: displayedBoxProperties.backgroundColor,
   }}
-></div>;
+></div>; */
+}
