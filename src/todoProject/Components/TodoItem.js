@@ -1,4 +1,5 @@
 import React from "react";
+import { ImCross } from "react-icons/im";
 
 export default function TodoItem({ todo, toggleCompleted, deleteTodo }) {
   return (
@@ -14,7 +15,7 @@ export default function TodoItem({ todo, toggleCompleted, deleteTodo }) {
           tick
         </span>
         <span onClick={() => deleteTodo(todo.id)} className="cursorPointer">
-          cross
+          <ImCross />
         </span>
       </div>
     </div>
