@@ -23,30 +23,44 @@ export default function App2() {
 
     getCommentData();
   }, []);
+  async function CallPostAPI() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "Post",
+      body: JSON.stringify({
+        title: "foo",
+        body: "bar",
+        userId: 1,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    console.log(await response.json());
+  }
+  function sendPost() {
+    CallPostAPI();
+  }
+  if (isLoading) {
+    return "loading";
+  }
   return (
     <>
-      {/* {isLoading && "loading"} */}
-      {isLoading ? (
-        "loading"
-      ) : (
-        <>
-          {commentData.map((comment) => {
-            return (
-              <div
-                className="card"
-                key={comment.id}
-                style={{ border: "1px solid black", width: "300px" }}
-              >
-                <div>{comment.body}</div>
-                <div style={{ display: "flex" }}>
-                  <span>{comment.name}</span>
-                  <span>{comment.email}</span>
-                </div>
-              </div>
-            );
-          })}
-        </>
-      )}
+      {commentData.map((comment) => {
+        return (
+          <div
+            className="card"
+            key={comment.id}
+            style={{ border: "1px solid black", width: "300px" }}
+          >
+            <div>{comment.body}</div>
+            <div style={{ display: "flex" }}>
+              <span>{comment.name}</span>
+              <span>{comment.email}</span>
+            </div>
+          </div>
+        );
+      })}
+      <button onClick={sendPost}>Send Post Data</button>
     </>
   );
 }
