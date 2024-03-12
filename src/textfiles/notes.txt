@@ -1,0 +1,22 @@
+
+pokemon -> 
+1) Understanding API and writing the code for them
+
+App.js (Parent component)
+	H1 (not component)
+	Pokemon Container (Component)
+		Card (Component)
+			serial no (not component)
+			image (not)
+			heading (not)
+			type (not)
+			button (not)
+
+	Modal (component)
+		(all no component)
+		image and name
+		stats
+		close button
+
+
+styles, optimization and fixing bugs.
