@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import PokemonContainer from "./components/PokemonContainer";
 import "./style.css";
+import PokemonModal from "./components/PokemonModal";
 
 export default function App() {
   const [pokemons, setPokemons] = useState([]);
   const [currentPokemonAPI, setCurrentPokemonAPI] = useState(
     "https://content.newtonschool.co/v1/pr/64ccef982071a9ad01d36ff6/pokemonspages1"
   );
-  const [selectedPokemonInModal, setSelectedPokemonInModal] = useState("");
+  const [selectPokemonInModal, setSelectedPokemonInModal] = useState("");
 
-  function assignPokemonToModal() {}
+  function assignPokemonToModal(assignedPokemon) {
+    setSelectedPokemonInModal(assignedPokemon);
+  }
   async function getPokemonData() {
     //handle negative cases firdt -> this makes your code very clean
     if (!currentPokemonAPI) {
@@ -21,29 +24,30 @@ export default function App() {
         throw new Error("Something went wrong");
       }
       const pokemonData = await response.json();
-      console.log(pokemonData);
-      console.log(pokemonData[0].results);
-      // setCurrentPokemonAPI(pokemonData[0]?.next ? pokemonData[0]?.next : null);
-      // const apiArray = pokemonData[0].results.map((pokemon) => {
-      //   return fetch(pokemon.url);
-      // });
+      // console.log(pokemonData);
+      // console.log(pokemonData[0].results);
+      setCurrentPokemonAPI(pokemonData[0]?.next ? pokemonData[0]?.next : null);
+      const apiArray = pokemonData[0].results.map((pokemon) => {
+        return fetch(pokemon.url);
+      });
       // console.log(apiArray);
-      // const pokemonStatsResponse = await Promise.all(apiArray);
-      // const pokemonStatsJsonPromises = pokemonStatsResponse.map(
-      //   (soloApiResponse) => {
-      //     // if (!soloApiResponse.ok) {
-      //     //   throw new Error("Something went wrong");
-      //     // }
-      //     return soloApiResponse.json();
-      //   }
-      // );
+      const pokemonStatsResponse = await Promise.all(apiArray);
+      const pokemonStatsJsonPromises = pokemonStatsResponse.map(
+        (soloApiResponse) => {
+          if (!soloApiResponse.ok) {
+            throw new Error("Something went wrong");
+          }
+          return soloApiResponse.json();
+        }
+      );
       // console.log(pokemonStatsJsonPromises);
-      // const pokemonStats = await Promise.all(pokemonStatsJsonPromises);
-      // const formatedPokemonStats = pokemonStats.map((pokemonStat) => {
-      //   return pokemonStat[0];
-      // });
-      // console.log(formatedPokemonStats);
-      // setPokemons((prev) => [...prev, ...formatedPokemonStats]);
+      const pokemonStats = await Promise.all(pokemonStatsJsonPromises);
+      console.log(pokemonStats);
+      const formatedPokemonStats = pokemonStats.map((pokemonStat) => {
+        return pokemonStat[0];
+      });
+      console.log(formatedPokemonStats);
+      setPokemons((prev) => [...prev, ...formatedPokemonStats]);
     } catch (err) {
       console.error(err);
     }
@@ -60,6 +64,10 @@ export default function App() {
       />
       {currentPokemonAPI ? (
         <button onClick={getPokemonData}>More Pokemons</button>
+      ) : null}
+
+      {selectPokemonInModal ? (
+        <PokemonModal pokemonData={selectPokemonInModal} />
       ) : null}
     </div>
   );

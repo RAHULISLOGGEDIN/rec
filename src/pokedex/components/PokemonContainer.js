@@ -7,7 +7,10 @@ export default function PokemonContainer({ pokemons, assignPokemonToModal }) {
       {pokemons.map((pokemon) => {
         return (
           <>
-            <PokemonCard />
+            <PokemonCard
+              pokemonData={pokemon}
+              assignPokemonToModal={assignPokemonToModal}
+            />
           </>
         );
       })}
