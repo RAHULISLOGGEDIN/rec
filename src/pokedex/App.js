@@ -8,7 +8,7 @@ export default function App() {
   const [currentPokemonAPI, setCurrentPokemonAPI] = useState(
     "https://content.newtonschool.co/v1/pr/64ccef982071a9ad01d36ff6/pokemonspages1"
   );
-  const [selectPokemonInModal, setSelectedPokemonInModal] = useState("");
+  const [selectPokemonInModal, setSelectedPokemonInModal] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   function assignPokemonToModal(assignedPokemon) {
