@@ -5,7 +5,7 @@ export default function PokemonCard({ pokemonData, assignPokemonToModal }) {
   return (
     <div className={`pokemon-card ${type} flex`}>
       <span>{id}</span>
-      <div className="flex image-container">
+      <div className="image-container flex">
         <img src={image} alt="" />
       </div>
       <div className="flex basicPokemonDetails">
@@ -15,7 +15,7 @@ export default function PokemonCard({ pokemonData, assignPokemonToModal }) {
 
       <button
         onClick={() => assignPokemonToModal(pokemonData)}
-        className={`${type} btn`}
+        className={` ${type} btn `}
       >
         Know more...
       </button>
