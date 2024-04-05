@@ -431,6 +431,11 @@ Array.prototype.myMap = function(cb){
 	A) This also gets triggered on mounted
 	B) This gets triggered on updated only if the states which are passed as a dependency array changes
 
+1) API Calls
+2) Cleaning event listeners -> window.removeEventListener (unmount)
+3) setTimeout
+4) setInterval and many more that we will see. 
+
 Question ->
 	Make a hierarchy
 		Parent
@@ -452,7 +457,7 @@ Concepts ->
 
 
 App.js (parent)
-	<h1>
+	<h1> (this is not a component)
 	<TodoForm />
 		(Form Tag or you can directly use an input and button)
 
@@ -462,3 +467,251 @@ App.js (parent)
 
 ** special -> save and retrieve todos -> on refresh -> the same items should appear
 	Hint -> use local storage along with useEffect
+
+Action Plan for TODO
+1) Those who were able to complete do nothing -> review the code and compare
+2) Those who completed but not did separate the todoForm and todoDisplay(did not use the state upliftment), recode and achieve state upliftment
+3) Those who couldn't completely complete, code it and then review. Don't see the solution, don't re-watch the video. First code if you get stuck then re-watch video and re-code.
+
+
+
+
+
+Fetch -> entire study
+calling an api in react 
+
+Call the API ->
+https://jsonplaceholder.typicode.com/posts/1/comments
+
+Display the first 2 content ->
+The body, email, name in terms of a CARD.
+
+
+27th February
+1) Make a loader
+2) In class assignments
+3) Different methods present and what they mean
+4) Make a post api call
+5) Project
+
+
+api delay -> time it takes
+1) Client machine
+2) Server Response Time -> in terms of computing that API (interacting with the database, formatting the response etc etc)
+3) Network delay / network congestion
+4) Client internet speed
+
+
+Mini todos
+1) Code writing and using VS Code shortcuts
+2) Digital note making
+3) --save (why? and do we really need it now?)
+
+REST -> a preferred way of writing the api ->
+
+certain guidelines (optional) -> each and every developer follow ->
+
+1) Methods ->
+	Action keywords ->
+		1) Get ->>>>>>>> you need to get some data from the server end
+			-> path params and query params ->
+		2) post -> you need to send some data to the server end, over here the server can also send you something back
+		3) put
+		4) delete
+		5) patch 
+
+API call ->
+	2 parts ->
+		1) method
+		2) end point
+
+	Both of them together make an API unique ->
+		https://api.user.me -> GET -> BE responds -> list of users
+		https://api.user.me -> POST -> user added successfully
+
+	BE -> handles both the situation uniquelly
+
+
+closure
+
+function outer(){
+	let a = 10;
+	return function inner(){
+		console.log(a);
+	}
+}
+const innerFunc = outer()
+innerFunc(); 
+
+
+Pokemon Project ->
+1) Pagination api -> what is it? why do we use it?
+2) Creating a modal -> in react -> 
+
+
+Query Param ->
+https://facebook.com/?search='abcd'
+https://facebook.com/?page_no='1'&page_size='20'
+
+Path Params ->
+Api contracts ->
+
+BE -> https://facebook.com/profile/:id
+
+https://facebook.com/profile/abcd
+https://facebook.com/profile/10
+https://facebook.com/profile/abcd1112232232
+
+Normal -> https://airbnb.com/listings
+
+post/1/comment/3
+
+pokemon -> 
+1) Understanding API and writing the code for them
+2) Handled nested API and promise.all, covered the data flow
+
+
+App.js (Parent component)
+	H1 (not component)
+	Pokemon Container (Component)
+		Card (Component)
+			serial no (not component)
+			image (not)
+			heading (not)
+			type (not)
+			button (not)
+
+	Modal (component)
+		(all no component)
+		image and name
+		stats
+		close button
+
+
+styles, optimization and fixing bugs.
+
+1st round
+DSA -> 90% DSA ->
+HTML
+CSS
+JS -> 8 0
+React
+Node
+
+
+Agenda -> 2nd March
+1) Making modal
+2) Styling the components
+
+React.portals
+
+1) doubts
+2) Assignments
+3) few functionalities on pokemon project
+4) tic tac toe -> library integrations
+
+         // <p className={isError ? 'error' : 'success'}> {eError}</p>
+
+
+1) Doubts
+2) Trivia Question
+3) Tic tac toe -> integrating toast
+	A) Read the documentation of toastify -> npm package -> documentation
+	B) Implement the same
+4) 
+
+
+3rd March 2024
+assignments ->
+pokemon -> modal
+npm libraries
+
+function foo(){
+	function bar(){
+		return 3;
+	}
+	return bar();
+	function bar(){
+		return 8;
+	}
+}
+console.log(foo())
+
+
+var x = 10;
+function test(){
+	if(x > 20){
+		var x = 50;
+	}
+	console.log(x)
+}
+test()
+
+undefined ->
+
+Toast ->
+
+reactstrap -> tic tac toe
+
+
+ReactDOM.createPortal(
+	<div>
+
+	<div/>
+	document.getElementById('portal')
+)
+
+Things remaining
+1) Heading -> can take time 
+2) More pokemons button
+3) Pokemon card hover effects (transforms)
+4) know more button hover effect
+5) The id to have a circle
+6) Minor changes in the modal
+
+
+Positions
+box modal
+symbols
+flex grids
+
+
+Class Bases Components
+
+1) Are we still using class based components
+yes and no, the companies which are operating on legacy code which haven't moved to function based component.
+Whenever you will be creating a component that will always be a function based component.
+
+2) Why do we need to study class based components
+A) Interviews
+B) Company who is transitioning from class based to function based component
+C) Not that much relevant today. 8 months. to understand certain documentation there is chances that the code might be in class based component hence you should be aware of the same.
+
+
+Sunday morning sess -> 1:30 - 4 ->
+	Rules -> Mic (least), video
+	Stage -> kick ->
+Array 
+Objects
+Event Loop
+Hoisting
+Scoping
+Closure
+
+nullish collessaing -> ??
+optional chaining -> ?
+retry logics -> 
+shimmer -> UI/UX -> 
+
+
+import abcdLogo from '../assetts/svg/abcd'
+
+client side rendering
+
+very bad for SEO ->
+	SEO -> web crawlers(spiders) -> html -> JS ->
+
+server side rendering 
+
+Tomorrow ->
+React Router

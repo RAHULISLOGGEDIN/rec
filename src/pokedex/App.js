@@ -61,26 +61,32 @@ export default function App() {
     getPokemonData();
   }, []);
   return (
-    <div className="container">
-      {selectPokemonInModal ? (
-        <PokemonModal
-          pokemonData={selectPokemonInModal}
-          closeModal={closeModal}
-        />
-      ) : null}
-
-      <h1>Pokemon Kingdom</h1>
-      {!isLoading ? (
-        <PokemonContainer
-          pokemons={pokemons}
-          assignPokemonToModal={assignPokemonToModal}
-        />
-      ) : (
-        "Loading...."
-      )}
-      {!isLoading && currentPokemonAPI ? (
-        <button onClick={getPokemonData}>More Pokemons</button>
-      ) : null}
-    </div>
+    <>
+      <div className="headingSection">
+        <div className="headingContainer">
+          <h1 className="heading">Pokemon Kingdom</h1>
+          <h1 className="heading">Pokemon Kingdom</h1>
+        </div>
+      </div>
+      <div className="container">
+        {!isLoading ? (
+          <PokemonContainer
+            pokemons={pokemons}
+            assignPokemonToModal={assignPokemonToModal}
+          />
+        ) : (
+          "Loading...."
+        )}
+        {!isLoading && currentPokemonAPI ? (
+          <button onClick={getPokemonData}>More Pokemons</button>
+        ) : null}
+        {selectPokemonInModal ? (
+          <PokemonModal
+            pokemonData={selectPokemonInModal}
+            closeModal={closeModal}
+          />
+        ) : null}
+      </div>
+    </>
   );
 }
