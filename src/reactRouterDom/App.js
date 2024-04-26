@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Blogs from "./pages/Blogs";
+import StopwatchParent from "./pages/stopwatch/StopwatchParent";
 
 export default function App() {
   return (
@@ -15,6 +16,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs/:id/:numId" element={<Blogs />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/stopwatch" element={<StopwatchParent />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
