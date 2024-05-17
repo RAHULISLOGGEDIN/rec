@@ -1,29 +1,43 @@
 import React from "react";
-import {Outlet, Link} from 'react-router-dom'}
+import { Outlet, Link, NavLink } from "react-router-dom";
+import "./tempStyle.css";
 
 export default function BlogLayout() {
   return (
     <>
       <nav>
-        sbdvahbdkvuansd
         <ul style={{ display: "flex", gap: "10px", listStyle: "none" }}>
           <li>
-            <Link to="/blogs/1">Blog 1</Link>
+            <NavLink
+              to="/blogs/1"
+              // className="{({isActive})=> isActive ? 'isActive' : ''}
+            >
+              Blog 1
+            </NavLink>
           </li>
           <li>
-          <Link to="/blogs/2">Blog 2</Link>
+            <NavLink
+              to="/blogs/2"
+              //  className="{(state)=> state.isActive ? 'isActive' : ''}
+            >
+              Blog 2
+            </NavLink>
           </li>
           <li>
-          <Link to="/blogs/3">Blog 3</Link>
+            <NavLink
+              to="/blogs/3"
+              // className="{({isActive})=> isActive ? 'isActive' : ''}
+              // className={'isActive sample power'}
+            >
+              Blog 3
+            </NavLink>
           </li>
         </ul>
       </nav>
+      {/* // <header className="blogHeader"> this is my temp head </header>
+      // <footer className="blogFooter"> this is my temp foot </footer> */}
 
-
-      {/* <header className="blogHeader">this is my temp head</header>
-      <footer className="blogFooter">this is my temp foot</footer> */}
-      
-      <Outlet />
+      <Outlet context={{ commonInfo: "I am common" }} />
     </>
   );
 }
