@@ -18,6 +18,7 @@ export default function BlogLayout() {
           <li>
             <NavLink
               to="/blogs/2"
+              replace
               //  className="{(state)=> state.isActive ? 'isActive' : ''}
             >
               Blog 2
