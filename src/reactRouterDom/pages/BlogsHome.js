@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Temp() {
+export default function BlogsHome() {
   return <div>Temp</div>;
 }
