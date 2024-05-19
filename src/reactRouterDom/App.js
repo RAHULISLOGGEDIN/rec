@@ -11,6 +11,7 @@ import Crypto from "./pages/crypto_proj/App";
 import BlogsHome from "./pages/BlogsHome";
 import BlogLayout from "./BlogLayout";
 import ConceptSearch from "./pages/ConceptSearch";
+import DBZ from "./DBZ";
 
 export default function App() {
   return (
@@ -28,9 +29,11 @@ export default function App() {
           <Route path="category/:categoryId" element={<IndividualBlogs />} />
         </Route>
 
+        <Route path="/concept-search" element={<ConceptSearch />} />
+        <Route path="/dbz" element={<DBZ />} />
+
         <Route path="/stopwatch" element={<StopwatchParent />} />
         <Route path="/crypto" element={<Crypto />} />
-        <Route path="/concept-search" element={<ConceptSearch />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
